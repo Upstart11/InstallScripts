@@ -124,6 +124,11 @@ wget https://huggingface.co/autismanon/modeldump/resolve/main/dreamshaper_8.safe
 # dreamshaper xl
 wget https://civitai.com/api/download/models/251662 --content-disposition -P ./models/checkpoints/
 
+#upscalers
+wget https://civitai.com/api/download/models/357054 --content-disposition -P ./models/upscale_models/
+wget https://civitai.com/api/download/models/156841 --content-disposition -P ./models/upscale_models/
+wget https://civitai.com/api/download/models/125843 --content-disposition -P ./models/upscale_models/
+
 
 # ipadapters
 wget https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-plus_sd15.safetensors -P ./models/ipadapter/

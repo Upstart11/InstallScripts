@@ -109,20 +109,41 @@ git clone https://github.com/mav-rik/facerestore_cf custom_nodes/facerestore_cf
 wget https://github.com/TencentARC/GFPGAN/releases/download/v1.3.4/GFPGANv1.4.pth -P ./models/facerestore_models/
 wget https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth -P ./models/facerestore_models/
 
+#YoloWorld
+git clone https://github.com/ZHO-ZHO-ZHO/ComfyUI-YoloWorld-EfficientSAM -P ./custom_nodes/ComfyUI-YoloWorld-EfficientSAM
+pip install -r custom_nodes/ComfyUI-YoloWorld-EfficientSAM/requirements.txt
+
 #install Checkpoints
 mkdir -p ./models/clip/
 mkdir -p ./models/clip_vision/
 mkdir -p ./models/ipadapter/
 mkdir -p ./models/upscale_models/
+mkdir -p ./models/sams/
+mkdir -p ./models/grounding_dino/
+mkdir -p ./models/inpaint/
 
 # turbovision xl
 wget https://huggingface.co/akshitapps/TurboVisionXL/resolve/main/turbovisionxlSuperFastXLBasedOnNew_tvxlV431Bakedvae.safetensors -P ./models/checkpoints/
 
+# majicMIx
+wget https://civitai.com/api/download/models/176425 --content-disposition -P ./models/checkpoints/
+wget https://civitai.com/api/download/models/221343 --content-disposition -P ./models/checkpoints/
+
 # dreamshaper 8
 wget https://huggingface.co/autismanon/modeldump/resolve/main/dreamshaper_8.safetensors -P ./models/checkpoints/
+wget https://civitai.com/api/download/models/131004 --content-disposition -P ./models/checkpoints/
 
 # dreamshaper xl
 wget https://civitai.com/api/download/models/251662 --content-disposition -P ./models/checkpoints/
+wget https://civitai.com/api/download/models/450187 --content-disposition -P ./models/checkpoints/
+
+# Juggernaut XL
+wget https://civitai.com/api/download/models/357609 --content-disposition -P ./models/checkpoints/
+wget https://civitai.com/api/download/models/449759 --content-disposition -P ./models/checkpoints/
+
+#InpaintModels
+#Big Lama
+wget https://huggingface.co/spaces/aryadytm/remove-photo-object/resolve/f00f2d12ada635f5f30f18ed74200ea89dd26631/assets/big-lama.pt?download=true --content-disposition -P ./models/inpaint/
 
 #upscalers
 wget https://civitai.com/api/download/models/357054 --content-disposition -P ./models/upscale_models/
@@ -135,7 +156,23 @@ wget https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-plus_s
 wget https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-plus-face_sd15.safetensors -P ./models/ipadapter/
 wget https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter_sd15.safetensors -P ./models/ipadapter/
 wget https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-full-face_sd15.safetensors -P ./models/ipadapter/
-wget https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors -P ./models/clip_vision/
+wget https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter-plus_sdxl_vit-h.safetensors -P ./models/ipadapter/
+wget https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter-plus-face_sdxl_vit-h.safetensors -P ./models/ipadapter/
+wget https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter_sdxl.safetensors -P ./models/ipadapter/
+wget https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter_sdxl_vit-h.safetensors -P ./models/ipadapter/
+wget https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid_sd15.bin -P ./models/ipadapter/
+wget https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-plusv2_sd15.bin -P ./models/ipadapter/
+wget https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-portrait-v11_sd15.bin -P ./models/ipadapter/
+wget https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid_sdxl.bin -P ./models/ipadapter/
+wget https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-plusv2_sdxl.bin -P ./models/ipadapter/
+wget https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-portrait_sdxl.bin -P ./models/ipadapter/
+wget https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-portrait_sdxl_unnorm.bin -P ./models/ipadapter/
+wget https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid_sd15_lora.safetensors -P ./models/loras/
+wget https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-plusv2_sd15_lora.safetensors -P ./models/loras/
+wget https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid_sdxl_lora.safetensors -P ./models/loras/
+wget https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-plusv2_sdxl_lora.safetensors -P ./models/loras/
+wget -O models/clip_vision/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors
+wget -O models/clip_vision/CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/image_encoder/model.safetensors
 
 # ControlNets
 wget https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11e_sd15_ip2p_fp16.safetensors -P ./models/controlnet/
@@ -159,9 +196,24 @@ wget https://huggingface.co/stabilityai/control-lora/resolve/main/control-LoRAs-
 wget https://huggingface.co/stabilityai/control-lora/resolve/main/control-LoRAs-rank256/control-lora-recolor-rank256.safetensors -P ./models/controlnet/
 wget https://huggingface.co/stabilityai/control-lora/resolve/main/control-LoRAs-rank256/control-lora-sketch-rank256.safetensors -P ./models/controlnet/
 wget -O ./models/controlnet/depth-sdxl-1.0-diffusion_pytorch_model.bin https://huggingface.co/diffusers/controlnet-depth-sdxl-1.0-mid/resolve/main/diffusion_pytorch_model.bin
+wget -O ./models/controlnet/zoe_depth.safetensors https://huggingface.co/diffusers/controlnet-zoe-depth-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors
 
 #vae
 wget https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.ckpt -P ./models/vae/
 
  # clip vision
 wget -O  ./models/clip_vision/SD15_CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors   https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors
+
+#sams
+wget https://huggingface.co/lkeab/hq-sam/resolve/main/sam_hq_vit_h.pth --content-disposition -P ./models/sams/
+wget https://huggingface.co/lkeab/hq-sam/resolve/main/sam_hq_vit_b.pth --content-disposition -P ./models/sams/
+
+#Grounding dino
+wget https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/groundingdino_swint_ogc.pth --content-disposition -P ./models/grounding_dino/
+wget https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/groundingdino_swinb_cogcoor.pth --content-disposition -P ./models/grounding_dino/
+wget https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/GroundingDINO_SwinT_OGC.cfg.py --content-disposition -P ./models/grounding_dino/
+wget https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/GroundingDINO_SwinB.cfg.py --content-disposition -P ./models/grounding_dino/
+
+#ESAM
+wget https://huggingface.co/camenduru/YoloWorld-EfficientSAM/resolve/main/efficient_sam_s_cpu.jit?download=true --content-disposition -P ./custom_nodes/ComfyUI-YoloWorld-EfficientSAM
+wget https://huggingface.co/camenduru/YoloWorld-EfficientSAM/resolve/main/efficient_sam_s_gpu.jit?download=true --content-disposition -P ./custom_nodes/ComfyUI-YoloWorld-EfficientSAM

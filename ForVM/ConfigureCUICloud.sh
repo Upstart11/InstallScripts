@@ -229,3 +229,8 @@ wget https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/GroundingDINO_
 #ESAM
 wget https://huggingface.co/camenduru/YoloWorld-EfficientSAM/resolve/main/efficient_sam_s_cpu.jit?download=true --content-disposition -P ./custom_nodes/ComfyUI-YoloWorld-EfficientSAM
 wget https://huggingface.co/camenduru/YoloWorld-EfficientSAM/resolve/main/efficient_sam_s_gpu.jit?download=true --content-disposition -P ./custom_nodes/ComfyUI-YoloWorld-EfficientSAM
+
+
+#Create executable Server
+chmod +x CreateServer.sh
+./CreateServer.sh

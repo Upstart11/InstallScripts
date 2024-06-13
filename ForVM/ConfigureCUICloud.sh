@@ -23,10 +23,10 @@ sudo apt-get --assume-yes install tmux
 sudo apt-get --assume-yes install nvtop
 sudo apt-get --assume-yes install btop
 sudo apt-get --assume-yes install ranger
-sudo apt-get --assume-yes install nano
+sudo apt-get --assume-yes install micro
 
-chmod +x CopyConfigs.sh
-./CopyConfigs.sh
+chmod +x InstallScripts/ForVM/CopyConfigs.sh
+./InstallScripts/ForVM/CopyConfigs.sh
 
 git clone https://github.com/Upstart11/Utils.git
 

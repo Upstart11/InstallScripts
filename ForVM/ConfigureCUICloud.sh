@@ -78,7 +78,7 @@ git clone https://github.com/comfyanonymous/ComfyUI
 pip install -r ComfyUI/requirements.txt
 
 #install extensions
-
+cd ComfyUI
 #COMFY MANAGER
 git clone https://github.com/ltdrdata/ComfyUI-Manager.git custom_nodes/ComfyUI-Manager
 pip install -r custom_nodes/ComfyUI-Manager/requirements.txt

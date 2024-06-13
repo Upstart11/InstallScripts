@@ -9,4 +9,4 @@ ln -s ~/dotFiles/LinuxCloud/nano/nanorc ~/.nanorc
 
 
 #creating crontab job
-(crontab -l 2>/dev/null; echo "1 * * * * /usr/local/bin/clear_cache.sh") | crontab -
+

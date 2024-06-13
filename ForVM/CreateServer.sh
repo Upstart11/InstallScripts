@@ -1,5 +1,18 @@
 # Dynamically creating run_the_server.sh
+echo "Current directory: $(pwd)"
+script_dir=$(dirname "$(realpath "$0")")
+echo "script_dir : $script_dir"
+parent_dir=$(dirname "$script_dir")
+echo "parent_dir Directory: $parent_dir"
+parentparent_dir=$(dirname "$parent_dir")
+echo "parentparent_dir Directory: $parentparent_dir"
+comfy_ui_dir="$parentparent_dir/ComfyUI"
+echo "ComfyUI Directory: $comfy_ui_dir"
 
+PYTHON_PATH="${USER_HOME}/miniconda3/bin/python"
+BASHRC_PATH="${USER_HOME}/.bashrc"
+COMFYUI_RUNNER_PATH="${comfy_ui_dir}/main.py"
+COMFYUI_PATH=$comfy_ui_dir
 # Create the run_the_server.sh file
 echo "#!/bin/bash" > run_the_server.sh
 echo "" >> run_the_server.sh

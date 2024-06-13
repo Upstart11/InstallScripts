@@ -25,9 +25,13 @@ sudo apt-get --assume-yes install btop
 sudo apt-get --assume-yes install ranger
 sudo apt-get --assume-yes install nano
 
+chmod +x CopyConfigs.sh
 ./CopyConfigs.sh
 
 git clone https://github.com/Upstart11/Utils.git
+
+chmod +x Utils/AutoClrC.sh
+chmod +x Utils/ClrC.sh
 
 #confirm there is a Nvidia GPU
 if lspci | grep -i -q nvidia; then

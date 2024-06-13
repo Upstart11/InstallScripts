@@ -25,6 +25,10 @@ sudo apt-get --assume-yes install btop
 sudo apt-get --assume-yes install ranger
 sudo apt-get --assume-yes install nano
 
+./CopyConfigs.sh
+
+git clone https://github.com/Upstart11/Utils.git
+
 #confirm there is a Nvidia GPU
 if lspci | grep -i -q nvidia; then
     echo "NVIDIA GPU found. Proceeding with installation."
@@ -121,6 +125,10 @@ mkdir -p ./models/upscale_models/
 mkdir -p ./models/sams/
 mkdir -p ./models/grounding_dino/
 mkdir -p ./models/inpaint/
+
+
+# SD3 Medium
+wget https://civitai.com/api/download/models/568392 --content-disposition -P ./models/checkpoints/
 
 # turbovision xl
 wget https://huggingface.co/akshitapps/TurboVisionXL/resolve/main/turbovisionxlSuperFastXLBasedOnNew_tvxlV431Bakedvae.safetensors -P ./models/checkpoints/

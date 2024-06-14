@@ -162,6 +162,11 @@ wget https://civitai.com/api/download/models/357054 --content-disposition -P ./m
 wget https://civitai.com/api/download/models/156841 --content-disposition -P ./models/upscale_models/
 wget https://civitai.com/api/download/models/125843 --content-disposition -P ./models/upscale_models/
 
+# SUPIR
+wget https://huggingface.co/Kijai/SUPIR_pruned/resolve/main/SUPIR-v0F_fp16.safetensors -P ./models/checkpoints/
+wget https://huggingface.co/Kijai/SUPIR_pruned/resolve/main/SUPIR-v0Q_fp16.safetensors -P ./models/checkpoints/
+
+
 
 # ipadapters
 wget https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-plus_sd15.safetensors -P ./models/ipadapter/

@@ -32,6 +32,7 @@ git clone https://github.com/Upstart11/Utils.git
 
 chmod +x Utils/AutoClrC.sh
 chmod +x Utils/ClrC.sh
+chmod +x Utils/CheckIfCUIIsRunning.sh
 
 #confirm there is a Nvidia GPU
 if lspci | grep -i -q nvidia; then

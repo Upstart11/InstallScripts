@@ -25,14 +25,20 @@ sudo apt-get --assume-yes install btop
 sudo apt-get --assume-yes install ranger
 sudo apt-get --assume-yes install micro
 
-chmod +x InstallScripts/ForVM/CopyConfigs.sh
-./InstallScripts/ForVM/CopyConfigs.sh
-
 git clone https://github.com/Upstart11/Utils.git
 
 chmod +x Utils/AutoClrC.sh
 chmod +x Utils/ClrC.sh
 chmod +x Utils/CheckIfCUIIsRunning.sh
+
+chmod +x InstallScripts/ForVM/CopyConfigs.sh
+./InstallScripts/ForVM/CopyConfigs.sh
+
+chmod +x InstallScripts/ForVM/AddCronJobs.sh
+./InstallScripts/ForVM/AddCronJobs.sh
+
+source .bashrc
+
 
 #confirm there is a Nvidia GPU
 if lspci | grep -i -q nvidia; then

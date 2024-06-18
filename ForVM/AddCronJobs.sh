@@ -2,8 +2,8 @@
 
 # Define an array of cron job schedules and commands
 CRON_JOBS=(
-    "/1 * * * * /Utils/AutoClrC.sh"
-    "/2 * * * * Utils/CheckIfCUIIsRunning.sh"
+    "*/1 * * * * /Utils/AutoClrC.sh"
+    "*/2 * * * * Utils/CheckIfCUIIsRunning.sh"
 )
 
 # Create a temporary file to store the current crontab

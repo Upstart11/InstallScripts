@@ -12,6 +12,10 @@ ln -s ~/dotFiles/LinuxCloud/nano/nanorc ~/.nanorc
 sudo rm -f ~/.bashrc > /dev/null 2>&1
 ln -s ~/dotFiles/LinuxCloud/bash/.bashrc ~/.bashrc
 
+# tmux
+sudo rm -f ~/.tmux.conf > /dev/null 2>&1
+ln -s ~/dotFiles/LinuxCloud/tmux/.tmux.conf ~/.tmux.conf
+
 # ranger
 sudo rm -f /home/vladislav/.config/ranger/rifle.conf > /dev/null 2>&1
 ln -s ~/dotFiles/LinuxCloud/.config/ranger/rifle.conf /home/vladislav/.config/ranger/rifle.conf

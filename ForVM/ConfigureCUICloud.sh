@@ -26,6 +26,7 @@ sudo apt-get --assume-yes install ranger
 sudo apt-get --assume-yes install micro
 
 git clone https://github.com/Upstart11/Utils.git
+git clone https://github.com/Upstart11/APIRetranslators.git
 
 chmod +x Utils/AutoClrC.sh
 chmod +x Utils/ClrC.sh
@@ -50,10 +51,10 @@ else
 fi
 
 # install nvidia drivers and CUDA
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
-wget https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda-repo-ubuntu2004-11-8-local_11.8.0-520.61.05-1_amd64.deb
-sudo dpkg -i cuda-repo-ubuntu2004-11-8-local_11.8.0-520.61.05-1_amd64.deb
-sudo cp /var/cuda-repo-ubuntu2004-11-8-local/cuda-*-keyring.gpg /usr/share/keyrings/
+# wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+# wget https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda-repo-ubuntu2004-11-8-local_11.8.0-520.61.05-1_amd64.deb
+# sudo dpkg -i cuda-repo-ubuntu2004-11-8-local_11.8.0-520.61.05-1_amd64.deb
+# sudo cp /var/cuda-repo-ubuntu2004-11-8-local/cuda-*-keyring.gpg /usr/share/keyrings/
 sudo apt-get update
 sudo apt-get -y install cuda
 
@@ -127,6 +128,16 @@ wget https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pt
 #YoloWorld
 git clone https://github.com/ZHO-ZHO-ZHO/ComfyUI-YoloWorld-EfficientSAM -P ./custom_nodes/ComfyUI-YoloWorld-EfficientSAM
 pip install -r custom_nodes/ComfyUI-YoloWorld-EfficientSAM/requirements.txt
+
+# ComfyUI Expirements
+git clone https://github.com/comfyanonymous/ComfyUI_experiments -P ./custom_nodes/ComfyUI_experiments
+
+# BiRefNet
+git clone https://github.com/viperyl/ComfyUI-BiRefNet.git -P ./custom_nodes/ComfyUI-BiRefNet
+pip install -r custom_nodes/ComfyUI-BiRefNet/requirements.txt
+cd ComfyUI/models/
+git clone https://huggingface.co/ViperYX/BiRefNet
+cd ComfyUI/
 
 #install Checkpoints
 mkdir -p ./models/clip/
@@ -242,7 +253,11 @@ wget https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/GroundingDINO_
 wget https://huggingface.co/camenduru/YoloWorld-EfficientSAM/resolve/main/efficient_sam_s_cpu.jit?download=true --content-disposition -P ./custom_nodes/ComfyUI-YoloWorld-EfficientSAM
 wget https://huggingface.co/camenduru/YoloWorld-EfficientSAM/resolve/main/efficient_sam_s_gpu.jit?download=true --content-disposition -P ./custom_nodes/ComfyUI-YoloWorld-EfficientSAM
 
+# resourcing .bashrc
+source .bashrc
 
-#Create executable Server
-chmod +x CreateServer.sh
-./CreateServer.sh
+# restarting tmux
+tmux kill-server
+tmux new-session
+
+startserver

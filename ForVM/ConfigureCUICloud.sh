@@ -31,6 +31,8 @@ git clone https://github.com/Upstart11/APIRetranslators.git
 chmod +x Utils/AutoClrC.sh
 chmod +x Utils/ClrC.sh
 chmod +x Utils/CheckIfCUIIsRunning.sh
+chmod +x Utils/show_aliases.sh
+
 
 chmod +x InstallScripts/ForVM/CopyConfigs.sh
 ./InstallScripts/ForVM/CopyConfigs.sh

@@ -122,8 +122,6 @@ python custom_nodes/ComfyUI-Impact-Pack/install.py
 #Face restore
 mkdir -p ./models/facerestore_models/
 git clone https://github.com/mav-rik/facerestore_cf custom_nodes/facerestore_cf
-wget https://github.com/TencentARC/GFPGAN/releases/download/v1.3.4/GFPGANv1.4.pth -P ./models/facerestore_models/
-wget https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth -P ./models/facerestore_models/
 
 #YoloWorld
 git clone https://github.com/ZHO-ZHO-ZHO/ComfyUI-YoloWorld-EfficientSAM -P ./custom_nodes/ComfyUI-YoloWorld-EfficientSAM
@@ -137,7 +135,10 @@ git clone https://github.com/viperyl/ComfyUI-BiRefNet.git -P ./custom_nodes/Comf
 pip install -r custom_nodes/ComfyUI-BiRefNet/requirements.txt
 cd ComfyUI/models/
 git clone https://huggingface.co/ViperYX/BiRefNet
+
 cd ComfyUI/
+wget https://github.com/TencentARC/GFPGAN/releases/download/v1.3.4/GFPGANv1.4.pth -P ./models/facerestore_models/
+wget https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth -P ./models/facerestore_models/
 
 #install Checkpoints
 mkdir -p ./models/clip/

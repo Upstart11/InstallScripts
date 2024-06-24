@@ -256,6 +256,7 @@ wget https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/GroundingDINO_
 wget https://huggingface.co/camenduru/YoloWorld-EfficientSAM/resolve/main/efficient_sam_s_cpu.jit?download=true --content-disposition -P ./custom_nodes/ComfyUI-YoloWorld-EfficientSAM
 wget https://huggingface.co/camenduru/YoloWorld-EfficientSAM/resolve/main/efficient_sam_s_gpu.jit?download=true --content-disposition -P ./custom_nodes/ComfyUI-YoloWorld-EfficientSAM
 
+cd
 # resourcing .bashrc
 source .bashrc
 

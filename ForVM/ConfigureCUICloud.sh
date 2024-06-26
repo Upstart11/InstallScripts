@@ -28,7 +28,7 @@ sudo apt-get --assume-yes install micro
 git clone https://github.com/Upstart11/Utils.git
 git clone https://github.com/Upstart11/APIRetranslators.git
 
-pip install fastapi uvicorn websocket
+pip install fastapi uvicorn websocket-client
 
 chmod +x Utils/AutoClrC.sh
 chmod +x Utils/ClrC.sh
